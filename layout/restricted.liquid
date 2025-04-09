@@ -17,7 +17,7 @@
         </script>
         {% include 'openGraphTags' %}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="{{ 'output.css' | asset_url }}"
         <link rel="stylesheet" type="text/css" href="{{ 'site.css.liquid' | asset_url }}"
     </head>
     <body id="{{ meta.title | handle }}" class="flex flex-col place-content-between min-h-screen max-w-full bg-white">
