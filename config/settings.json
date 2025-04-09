@@ -1,0 +1,125 @@
+{
+  "name": "theme-template",
+  "version": "0.1.1",
+  "developer": "Cradle CMS",
+  "description": "Template for Cradle theme",
+  "sections": [
+    {
+      "key": "global",
+      "type": "section",
+      "caption": "Global",
+      "settings": [
+        {
+          "caption": "Development",
+          "key": "development",
+          "type": "header"
+        },
+        {
+          "caption": "Theme CSS mode",
+          "key": "cssDevMode",
+          "options": [
+            {
+              "caption": "Production",
+              "value": "production"
+            },
+            {
+              "caption": "Development",
+              "value": "development"
+            }
+          ],
+          "type": "select"
+        },
+        {
+          "caption": "Closed site",
+          "description": "Settings for the restricted template used when the site is closed",
+          "key": "closed_site",
+          "type": "header"
+        },
+        {
+          "caption": "Message on closed site",
+          "key": "closed_message",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "key": "colors",
+      "type": "section",
+      "caption": "Colors",
+      "settings": [
+        {
+          "caption": "General Colors",
+          "key": "general_colors",
+          "type": "header"
+        },
+        {
+          "caption": "Primary Color",
+          "description": "Used for text links and primary buttons",
+          "key": "color_primary",
+          "type": "color"
+        },
+        {
+          "caption": "Body Background",
+          "key": "color_background",
+          "type": "color"
+        },
+        {
+          "caption": "Accent Color",
+          "description": "Used for Accent Color",
+          "key": "color_accent",
+          "type": "color"
+        },
+        {
+          "caption": "Secondary Color",
+          "description": "Used for secondary buttons",
+          "key": "color_secondary",
+          "type": "color"
+        }
+      ]
+    },
+    {
+      "key": "header",
+      "type": "section",
+      "caption": "Header",
+      "settings": [
+        {
+          "caption": "Main nav linklist",
+          "key": "headerLinklist",
+          "type": "linklist"
+        }
+      ]
+    },
+    {
+      "key": "homepage",
+      "type": "section",
+      "caption": "Homepage",
+      "settings": [
+        {
+          "caption": "banners to show on the homepage",
+          "key": "homepage_news",
+          "type": "header"
+        },
+        {
+          "key": "homepage_banners",
+          "struct": [
+            {
+              "caption": "URL",
+              "key": "homepage_banners_url",
+              "type": "text"
+            },
+            {
+              "caption": "Select a banner image",
+              "description": "Recommend the optimal width and height for your image here.",
+              "filename": "homepage_banner.png",
+              "key": "homepage_banners_image",
+              "max-height": 1200,
+              "max-width": 1200,
+              "type": "asset"
+            }
+          ],
+          "type": "struct"
+        }
+      ]
+    }
+  ]
+}

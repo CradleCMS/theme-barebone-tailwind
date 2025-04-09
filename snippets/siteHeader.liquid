@@ -1,0 +1,24 @@
+<header class="p-2 fixed bg-zinc-50 sticky top-0 shadow z-10">
+    <div class="m-auto w-5xl max-w-full flex gap-6 content-center">
+        <h1 class="text-xl font-bold">{{ site.name }}</h1>
+        <ul class="px-1 flex gap-6 self-center">
+            {% assign mainNav = settings.headerLinklist | def: "menu" %}
+            {% for link in navigation[mainNav].links %}
+                {% if link.type == 'navigation' and navigation[link.param].links.size > 0 %}
+                <li class="font-semibold text-base uppercase">
+                    <details>
+                        <summary>{{ link.title }}</summary>
+                          <ul class="p-2 mt-4 w-60 absolute shadow bg-zinc-50">
+                            {% for childlink in navigation[link.param].links %}
+                                <li class="font-semibold"><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                            {% endfor %}
+                          </ul>
+                    </details>
+                </li>
+                {% else %}
+                <li class="font-semibold uppercase"><a href="{{ link | url }}">{{ link.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+        	{{ site.name }} {% if meta.title != blank and meta.title != site.name %} | {{meta.title}}{% endif %}
+        </title>	
+        {% if metaDescription %}
+        <meta name="description" content="{{ metaDescription | escape }}" />
+        {% endif %}
+        {% if metaKeywords %}
+        <meta name="keywords" content="{{ metaKeywords | escape }}" />
+        {% endif %}
+        <link rel="canonical" href="{{ canonicalUrl }}" />
+        <script type="application/ld+json">
+            {% include 'structuredData' %}
+        </script>
+        {% include 'openGraphTags' %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="{{ 'site.css.liquid' | asset_url }}"
+    </head>
+    <body id="{{ meta.title | handle }}" class="flex flex-col place-content-between min-h-screen max-w-full bg-white">
+        <header class="p-2">
+            <div class="m-auto w-5xl max-w-full">
+                <h1>{{ site.name }}</h1>
+            </div>
+        </header>
+        <main class="grid place-content-center grow">
+        	{{ settings.closed_message }}
+        </main>
+        <footer class="p-2 m-auto w-5xl max-w-full">
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> - {{ site.name }} - {{ lang.all_rights_reserved | def:'All rights reserved'}}</p>
+        </footer>
+    </body>
+</html>

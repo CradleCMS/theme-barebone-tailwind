@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+        	{{ site.name }} {% if meta.title != blank and meta.title != site.name %} | {{meta.title}}{% endif %}
+        </title>	
+        {% if metaDescription %}
+        <meta name="description" content="{{ metaDescription | escape }}" />
+        {% endif %}
+        {% if metaKeywords %}
+        <meta name="keywords" content="{{ metaKeywords | escape }}" />
+        {% endif %}
+        <link rel="canonical" href="{{ canonicalUrl }}" />
+        {% if template == 'index' %}
+        <script type="application/ld+json">
+            {% include 'structuredData' %}
+        </script>
+        {% endif %}
+        {% include 'openGraphTags' %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% if settings.cssDevMode == "development" %}
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" type="text/css" href="{{ 'prose.css' | asset_url }}">
+        {% else %}
+        <link rel="stylesheet" type="text/css" href="{{ 'output.css' | asset_url }}">
+        {% endif %}
+        <link rel="stylesheet" type="text/css" href="{{ 'editor-styles.css' | asset_url }}">
+        <link rel="stylesheet" type="text/css" href="{{ 'site.css.liquid' | asset_url }}">
+    </head>
+    <body id="{{ meta.title | handle }}" class="flex flex-col place-content-between min-h-screen max-w-full bg-white template-{{ template | replace: '.', ' ' | split: ' ' | first | handle }}">
+        {% include 'siteHeader' %}
+        <main class="m-auto w-5xl max-w-full mt-8 mb-8 grow">
+        	{{ contentForLayout }}
+        </main>
+        <footer class="p-4 bg-zinc-100">
+            <div class="m-auto w-5xl max-w-full">
+                <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> - {{ site.name }} - {{ lang.all_rights_reserved | def:'All rights reserved'}}</p>
+            </div>
+        </footer>
+    </body>
+</html>

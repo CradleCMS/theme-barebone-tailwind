@@ -1,0 +1,25 @@
+<section class="mb-8">
+    <h1 class="text-2xl mb-4">List of blogs</h1>
+    {% for blog in blogs %}
+        <h4 class="text-lg mt-8 font-bold">
+            <a href="{{ blog | url }}">{{ blog.title }} ({{ blog.articleCount }})</a>
+        </h4>
+        {% if blog.html %}
+        <p class="mb-2">{{ blog.html | strip_html | truncatewords: 20 }}</p>
+        {% endif %}
+        {% if blog.articleTags.size > 0 %}
+        <p class="mb-4">
+            {% for tag in blog.articleTags %}
+                <a class="px-2 py-1 bg-lime-100" href="{{blog | url }}?tags={{ tag }}">{{ tag }}</a>
+            {% endfor %}
+        </p>
+        {% endif %}
+        {% unless blog.articles == empty %}
+        <div class="grid grid-cols-3 gap-4 mb-4">
+        {% for article in blog.articles %}
+            {% include 'articleCard' %}
+    	{% endfor %}
+    	</div>
+        {% endunless %}
+    {% endfor %}
+</section>

@@ -1,0 +1,18 @@
+<article>
+    <section class="{{ article.format }} prose mb-8">
+        <h1>{{ meta.h1 }}</h1>
+        {{ article.html }}
+    </section>
+    <nav class="flex place-content-between" id="next-prev">
+        <p class="prev font-bold">
+            {% unless article.previous == empty %}
+            <a href="{{ article.previous | url }}">&larr; Previous<br>{{ article.previous.title }}</a>
+            {% endunless %}            
+        </p>
+        <p class="next text-right font-bold">
+            {% unless article.next == empty %}
+            <a href="{{ article.next | url }}">Next &rarr;<br>{{ article.next.title }}</a>
+            {% endunless %}            
+        </p>
+    </nav>
+</article>
