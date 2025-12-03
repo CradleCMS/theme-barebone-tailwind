@@ -35,8 +35,9 @@
         </main>
         <footer class="p-4 bg-zinc-100">
             <div class="m-auto w-5xl max-w-full">
-                <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> - {{ site.name }} - {{ lang.all_rights_reserved | def:'All rights reserved'}}</p>
+                <p>{{ 'Copyright &copy;' | t }} <script>document.write(new Date().getFullYear())</script> - {{ site.name }} - {{ lang.all_rights_reserved | def:'All rights reserved' | t }}</p>
             </div>
         </footer>
     </body>
+       {% component 'alang.liquid' %} 
 </html>

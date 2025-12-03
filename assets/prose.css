@@ -175,8 +175,8 @@
 }
 
 .prose pre {
-  color: #e5e7eb;
-  background-color: #1f2937;
+  color: #000;
+  background-color: #D3D3D3;
   overflow-x: auto;
   font-size: 0.875em;
   line-height: 1.7142857;
@@ -7921,3 +7921,4 @@
     color: #db2777;
   }
 }
+

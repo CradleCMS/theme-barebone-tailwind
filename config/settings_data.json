@@ -3,11 +3,13 @@
   "presets": {
     "Default": {
       "closed_message": "This is a closed site!",
+      "color_background": "#70baff",
       "cssDevMode": "development",
       "headerLinklist": {
         "entity": "navigation",
-        "id": "17f82152-7203-8ec4-9905-54f3709f0dde",
-        "navigation": "main"
+        "id": "187b807c-542d-88ca-b288-f2062c8dd995",
+        "navigation": "navigation1",
+        "parent": ""
       },
       "main_nav": {
         "entity": "navigation",
