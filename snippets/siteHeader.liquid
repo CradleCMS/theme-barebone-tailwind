@@ -1,6 +1,7 @@
 <header class="p-2 fixed bg-zinc-50 sticky top-0 shadow z-10">
+    
     <div class="m-auto w-5xl max-w-full flex gap-6 content-center">
-        <h1 class="text-xl font-bold">{{ site.name }}</h1>
+        <h1 class="text-xl font-bold"><a href="/">{{ site.name }}</a></h1>
         <ul class="px-1 flex gap-6 self-center">
             {% assign mainNav = settings.headerLinklist | def: "menu" %}
             {% for link in navigation[mainNav].links %}
@@ -14,11 +15,21 @@
                             {% endfor %}
                           </ul>
                     </details>
+                    
                 </li>
                 {% else %}
                 <li class="font-semibold uppercase"><a href="{{ link | url }}">{{ link.title }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>
+      {% if site.langs.size > 1 %}
+        <a-lang>
+            <select name="lang" class="select bg-transparent w-24" value="{{lang}}">
+                {% for l in site.langs | keys | sort %}
+                <option value="{{ l }}" {% if l == lang %}selected{% endif %}>{{languages[l] | t:'default' }}</option>
+                {% endfor %}
+            </select>
+        </a-lang>
+        {% endif %}
     </div>
 </header>
